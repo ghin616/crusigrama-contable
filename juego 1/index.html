@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+
+
+
+
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crucigrama contable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Crucigrama contable (PASIVO)</h1>
+    
+    <div class="botones">
+      <button onclick="iniciarJuego()">Iniciar</button>
+      <button onclick="verificarRespuestas()">Verificar</button>
+      <button onclick="reiniciarCrucigrama()">Reiniciar</button>
+      <button id="btnReglas" class="btn-reglas">📜 Reglas</button>
+    </div>
+
+    <p id="tiempo">30:00</p>
+    <table id="crucigrama"></table>
+    <p id="mensaje"></p>
+
+    <div class="pistas">
+      <div class="pistas-horizontales">
+        <h3>Horizontal</h3>
+        <ul>
+          <li><strong>3.</strong> Son las entidades a quienes la empresa les debe dinero por haberles comprado mercancías a credito, sin darles ninguna garantía documental.</li>
+          <li><strong>5.</strong> Son los impuestos generados o causados devengados, que estan pendientes de pago a cargo de le empresa.</li>
+          <li><strong>6.</strong> Son títulos de crédito a cargo de la empresa, tales como letras de cambio y pagarés.</li>
+          <li><strong>7.</strong> Es el valor del anticipo a cuentas de pedidos que la empresa recibe de sus clientes a cuentas de facturas ventas de mercancías.</li>
+          <li><strong>8.</strong> Son deudas que una empresa tiene formalizadas mediante documentos como letras de cambio o pagarés y que vencerán en un plazo mayor a un año.</li>
+          <li><strong>9.</strong> son deudas que una empresa tiene pendientes con terceros, sin necesidad de estar documentadas formalmente como con pagarés o letras de cambio, y que se deben liquidar en un plazo mayor a un año.</li>
+        </ul>
+      </div>
+
+      <div class="pistas-verticales">
+        <h3>Vertical</h3>
+        <ul>
+          <li><strong>1.</strong> Son las obligaciones que tienen como garantía la escritura de bienes inmuebles.</li>
+          <li><strong>2.</strong> Son los gastos por servicioso beneficios devengados.</li>
+          <li><strong>4.</strong> Son las entidades a quienes la empresa les debe por un concepto distinto de la compra de mercancías.</li>
+          <li><strong>11.</strong> Son el importe de una o varias rentas mensuales, semestrales, o anules, que aún no estando vencidas la empresa haya cobrado anticipadamente.</li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+   <!-- Modal de reglas añadido aquí -->
+  <div id="modalReglas" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar">&times;</span>
+      <h2>Reglas del Crucigrama</h2>
+      <ol>
+        <li>Presiona el botón <strong>Iniciar</strong> para comenzar el juego y el temporizador.</li>
+        <li>Usa las pistas horizontales y verticales para completar las palabras.</li>
+        <li>Puedes navegar entre celdas con las teclas de dirección (↑ ↓ ← →).</li>
+        <li>Presiona <strong>Verificar</strong> para comprobar tus respuestas.</li>
+        <li>Tienes 30 minutos para completar el crucigrama.</li>
+        <li>Al verificar dos veces o cuando se acabe el tiempo, el juego terminará.</li>
+        <li>Ganará el juego quien obtenga más puntos al finalizar el juego..</li>
+        <li>Se tomará en cuenta el tiempo en el que se resolvió el crucigrama.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <!-- Añade este script al final -->
+  <script>
+    // Control del modal de reglas
+    const modal = document.getElementById("modalReglas");
+    const btn = document.getElementById("btnReglas");
+    const span = document.getElementsByClassName("cerrar")[0];
+
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+
+</body>
+</html>
+

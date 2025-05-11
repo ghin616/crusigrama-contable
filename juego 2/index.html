@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crucigrama contable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Botón de reglas añadido aquí -->
+    <button id="btnReglas" class="btn-reglas">📜 Reglas</button>
+    
+    <h1>Crucigrama contable (ACTIVO)</h1>
+    
+    <div class="botones">
+      <button onclick="iniciarJuego()">Iniciar</button>
+      <button onclick="verificarRespuestas()">Verificar</button>
+      <button onclick="reiniciarCrucigrama()">Reiniciar</button>
+    </div>
+
+    <p id="tiempo">30:00</p>
+    <table id="crucigrama"></table>
+    <p id="mensaje"></p>
+
+    <div class="pistas">
+      <div class="pistas-horizontales">
+        <h3>Horizontal</h3>
+        <ul>
+          <li>1<strong> Son los gastos que hace la entidad con la finalidad de obtener conocimiento del mercado para un producto o servicio, darlo a conocer desarrollarlo o mantener la preferencia del consumidor.</strong>.</li>
+          <li>4<strong> Es el conjunto de material de papelería y objetos de escritorio que se emplean en las labores de la empresa, lo constituyen el papel en blanco o membretado, sobres, formatos impresos como remisiones, facturas, recibos, libros, registros, tarjetas, así como los lápices, bolígrafos, tintas, correctores etc.</strong>.</li>
+          <li>8<strong> Es el valor del anticipo a cuentas de anticipo que la empresa entrega a proveedores.</strong>.</li>
+          <li>9<strong> Son los contratos mediante las cuales se amparan las entidades que la empresa deja en guarda para garantizar valores o servicios que va a disfrutar.</strong>.</li>
+          <li>10<strong> se refiere al conjunto de herramientas, vehículos y recursos necesarios para realizar entregas eficientes de productos o mercancías.</strong>.</li>
+          <li>11<strong> Son las que están representadas por acciones y otros valores negociables convertibles en efectivo el plazo mayor de un año, que loa empresa, que la empresa adquiere en organismos del sector financiero, con el propósito de obtener un rendimiento o beneficio mayor al que producen las inversiones temporales.</strong>.</li>
+          <li>13<strong> Son las entidades que le deben a la empresa por un concepto distinto al de venta de mercancías.</strong>.</li>
+          <li>14<strong> Son las propiedades fijas, tales como locales comerciales, bodegas, estacionamientos, etc, propiedad de la empresa.</strong>.</li>
+          <li>15<strong> Es el conjunto de muebles y utensilios, tales como escritorios, sillas, mesas, libreros, mostradores, vitrinas, máquinas de oficina, entre otros, propiedad de la empresa.</strong>.</li>
+          <li>16<strong> son los costos incurridos durante la creación y puesta en marcha de una empresa o proyecto.</strong>.</li> 
+          <li>17<strong> Son todos aquellos valores que hacen objeto de compra o venta.</strong>.</li>
+          <li>18<strong> Son los intereses que la empresa paga antes del vencimiento de un crédito.</strong>.</li>
+          <li>20<strong> Son todos los gastos que efectúa la empresa para acondicionar el local de su negocio, así como para darle al mismo cierta comodidad y presentación.</strong>.</li>
+          <li>21<strong> Son los pagos que hace la empresa a las compañías aseguradoras, por los cuales adquiere el derecho de asegurar los bienes de su negocio contra incendios, riesgos y accidentes, robos etc.</strong>.</li>
+          <li>23<strong> son los gastos que hace la empresa durante su etapa pre operativa, cuyas actividades se encuentran encaminadas a iniciar sus operaciones comerciales, tales como: adquirir equipos, organizar su administración y su producción.</strong>.</li>
+          <li>24<strong> Son los medios por los cuales se da a conocer al público determinada actividad, servicio o producto que la empresa proporciona produce o vende, los medios más conocidos son los folletos, prospectos, volantes, anuncios en diarios etc.</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="pistas-verticales">
+        <h3>Vertical</h3>
+        <ul>
+          <li>2<strong> Es el dinero en efectivo propiedad de la empresa, el cual esta representado por monedas y billetes de banco, así como cheques y pagarés.</strong>.</li>
+          <li>3<strong> Representa el valor de los depósitos hecho en instituciones bancarias a favor de la entidad.</strong>.</li>
+          <li>5<strong> Son los títulos de crédito a favor de la entidad, tales como letras de cambio y pagarés.</strong>.</li>
+          <li>6<strong> Son las entidades que deben a la empresa por haberles vendido mercancías a crédito.</strong>.</li>
+          <li>7<strong> Son las que están representadas por acciones y otros valores de inmediata realización, que la empresa adquiere en casas de bolsa o en otros organismos del sector financiero con el propósito de obtener un rendimiento o ganancia en un plazo corto.</strong>.</li>
+          <li>12<strong> Son los predios propiedad de la entidad.</strong>.</li>
+          <li>19<strong> Son el importe de una o varias rentas mensuales, semestrales o anuales correspondientes al edificio que ocupa la empresa, que aun no estando vencidas se pagaron anticipadamente.</strong>.</li>
+          <li>22<strong> Es el conjunto integrado por unidades centrales de proceso (CPU), monitores, teclado, impresoras, drivers, (unidad de disco, scanner, plotters, etc.</strong>.</li>
+          <li>25<strong> Son los gastos que la empresa efectúa en la creación de nuevos tipos de productos, de procesos de elaboración o de servicios.</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de reglas añadido aquí -->
+  <div id="modalReglas" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar">&times;</span>
+      <h2>Reglas del Crucigrama</h2>
+      <ol>
+        <li>Presiona el botón <strong>Iniciar</strong> para comenzar el juego y el temporizador.</li>
+        <li>Usa las pistas horizontales y verticales para completar las palabras.</li>
+        <li>Puedes navegar entre celdas con las teclas de dirección (↑ ↓ ← →).</li>
+        <li>Presiona <strong>Verificar</strong> para comprobar tus respuestas.</li>
+        <li>Tienes 30 minutos para completar el crucigrama.</li>
+        <li>Al verificar dos veces o cuando se acabe el tiempo, el juego terminará.</li>
+        <li>Ganará el juego quien obtenga más puntos al finalizar el juego..</li>
+        <li>Se tomará en cuenta el tiempo en el que se resolvió el crucigrama.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <!-- Añade este script al final -->
+  <script>
+    // Control del modal de reglas
+    const modal = document.getElementById("modalReglas");
+    const btn = document.getElementById("btnReglas");
+    const span = document.getElementsByClassName("cerrar")[0];
+
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+
+
+
+
+
+</body>
+</html>

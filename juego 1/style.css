@@ -1,0 +1,292 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #28a89d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background: rgb(240, 25, 14);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  max-width: 900px;
+  width: 100%;
+  border: 1px solid #d30707;
+  background-image: linear-gradient(to bottom right, #bd44a7, #3a99a5); /*segundo fondo*/
+}
+
+h1 {
+  color: #0b4e33;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#tiempo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d32f2f;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 25px auto;
+  background: rgb(227, 4, 223);
+  box-shadow: 0 4px 8px rgba(156, 25, 208, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #bcf0c1;
+}
+
+td {
+  aspect-ratio: 1; /*  */
+  width: 28px; /* xxxxxxxxxxxxx*/
+  height: 5px; /*yyyyyyyyyyyy*/
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  background: #ffffff;
+  /* Añade estas propiedades: */
+  box-sizing: border-box; /* Incluye borde en las dimensiones */
+  padding: 0; /* Elimina padding por defecto */
+  margin: 0; /* Elimina margenes por defecto */
+  line-height: 1; /* Controla espaciado vertical interno */
+}
+
+
+input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: lowercase;
+  color: #000000;
+  background: transparent;
+}
+
+input:focus {
+  outline: 2px solid #4CAF50;
+  background: #e8f5e9;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #323fc7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background: #388E3C;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#mensaje {
+  font-size: 18px;
+  font-weight: 600;
+  min-height: 24px;
+  margin: 15px 0;
+  color: #d32f2f;
+  text-align: center;
+}
+
+.pistas {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pistas h3 {
+  color: #8e0442;
+  margin-top: 0;
+  text-align: center;
+}
+
+.pistas ul {
+  padding-left: 20px;
+}
+
+.pistas li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.pistas-horizontales,
+.pistas-verticales {
+  flex: 1;
+  min-width: 200px;
+}
+
+input.celda-correcta {
+  background-color: #c8e6c9 !important;
+  border: 2px solid #388e3c !important;
+}
+
+input.celda-incorrecta {
+  background-color: #ffcdd2 !important;
+  border: 2px solid #d32f2f !important;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  td {
+    width: 30px;
+    height: 30px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  .botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pistas {
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+.celda-vacia {
+  background-color: #a7d4eb;  /* Color de fondo  casillas bloqueadas*/
+  border: 1px solid #d3d3d3;  /* Borde  */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Para celdas vacías (las que no contienen input) */
+td:empty {
+  background-color: #a7d4eb; /* Azul claro */
+  border: 1px solid #d3d3d3;
+}
+
+/* Para celdas con contenido (las que contienen input) */
+td:has(input) {
+  background-color: #ffffff; /* Blanco */
+}
+
+
+
+
+
+
+
+/*reglas*/
+
+/* Estilos para el botón de reglas */
+/* Estilo para posicionar el botón de reglas en la esquina superior izquierda */
+.container {
+    position: relative; /* Añade esto para que el botón se posicione respecto al contenedor */
+    padding: 60px 40px 40px; /* Más padding arriba para evitar que el botón tape el título */
+}
+
+#btnReglas {
+    position: absolute;
+    left: 20px;  /* Distancia desde la izquierda */
+    top: 20px;   /* Distancia desde arriba */
+    padding: 8px 15px;
+    background: #4a6fa5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-contenido {
+  background-color: #f8f9fa;
+  margin: 10% auto;
+  padding: 25px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.cerrar:hover {
+  color: #333;
+}
+
+.modal h2 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.modal ol {
+  padding-left: 20px;
+}
+
+.modal li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
